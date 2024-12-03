@@ -3,7 +3,6 @@
 #include <string>
 #include <vector>
 #include <regex>
-
 int main()
 {
     std::ifstream file("input3.txt");
@@ -31,7 +30,7 @@ int main()
                 else if (m_doit[0] != "" && m_dont[0] == "") enabled = true;
                 else {
                     if (m_doit.suffix().str().size() > m_dont.suffix().str().size()) enabled = false;
-                    else if (m_dont.suffix().str().size() > m_doit.suffix().str().size()) enabled = true;
+                    else if (m_dont.suffix().str().size() > m_doit.prefix().str().size()) enabled = true;
                 }
                 if (enabled) answer_p2 += (std::stoi(m[1]) * std::stoi(m[2]));
                 answer_p1 += (std::stoi(m[1]) * std::stoi(m[2]));
@@ -42,4 +41,5 @@ int main()
     }
     std::cout << static_cast<int>(answer_p1) << std::endl;
     std::cout << static_cast<int>(answer_p2) << std::endl;
+    return 0;
 }

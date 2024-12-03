@@ -57,4 +57,5 @@ int main()
     }
     std::cout << static_cast<int>(answer_p1) << std::endl;
     std::cout << static_cast<int>(answer_p2) << std::endl;
+    return 0;
 }
