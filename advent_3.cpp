@@ -13,6 +13,7 @@ int main()
     std::regex rgx_dont("\\)\\(t'nod");
     std::regex rgx_doit("\\)\\(od");
     double answer_p1 = 0;
+    double answer_p2 = 0;
     bool enabled = true;
 
     if (file.is_open())
@@ -33,11 +34,13 @@ int main()
                     if (m_doit.prefix().str().size() > m_dont.prefix().str().size()) enabled = false;
                     else if (m_dont.prefix().str().size() > m_doit.prefix().str().size()) enabled = true;
                 }
-                if (enabled) answer_p1 += (std::stoi(m[1]) * std::stoi(m[2]));
+                if (enabled) answer_p2 += (std::stoi(m[1]) * std::stoi(m[2]));
+                answer_p1 += (std::stoi(m[1]) * std::stoi(m[2]));
                 line = m.suffix().str();
             }
         }
         file.close();
     }
     std::cout << static_cast<int>(answer_p1) << std::endl;
+    std::cout << static_cast<int>(answer_p2) << std::endl;
 }
